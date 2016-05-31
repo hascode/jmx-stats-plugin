@@ -25,9 +25,4 @@
 		<description>Provides the initializing service.</description>
 		<interface>com.hascode.confluence.stats.SetupBean</interface>
 	</component>
-
-	<module-type key="jmxStatPlugin" class="com.hascode.confluence.stats.plugin.StatsPluginModuleDescriptor" />
-
-	<jmxStatPlugin key="userLicenseCountStat" class="com.hascode.confluence.stats.UserStatsPlugin" />
-
 </atlassian-plugin>
