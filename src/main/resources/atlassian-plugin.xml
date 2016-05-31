@@ -1,0 +1,33 @@
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+	<plugin-info>
+		<description>${project.description}</description>
+		<version>${project.version}</version>
+		<vendor name="${project.organization.name}" url="${project.organization.url}" />
+		<param name="plugin-icon">images/pluginIcon.png</param>
+		<param name="plugin-logo">images/pluginLogo.png</param>
+	</plugin-info>
+
+	<!-- add our i18n resource -->
+	<resource type="i18n" name="i18n" location="jmx-stats-plugin" />
+
+	<!-- add our web resources -->
+	<web-resource key="jmx-stats-plugin-resources" name="jmx-stats-plugin Web Resources">
+		<dependency>com.atlassian.auiplugin:ajs</dependency>
+
+		<resource type="download" name="jmx-stats-plugin.css" location="/css/jmx-stats-plugin.css" />
+		<resource type="download" name="jmx-stats-plugin.js" location="/js/jmx-stats-plugin.js" />
+		<resource type="download" name="images/" location="/images" />
+
+		<context>jmx-stats-plugin</context>
+	</web-resource>
+
+	<component key="statsSetupBean" class="com.hascode.confluence.stats.SetupBeanImpl">
+		<description>Provides the initializing service.</description>
+		<interface>com.hascode.confluence.stats.SetupBean</interface>
+	</component>
+
+	<module-type key="jmxStatPlugin" class="com.hascode.confluence.stats.plugin.StatsPluginModuleDescriptor" />
+
+	<jmxStatPlugin key="userLicenseCountStat" class="com.hascode.confluence.stats.UserStatsPlugin" />
+
+</atlassian-plugin>
